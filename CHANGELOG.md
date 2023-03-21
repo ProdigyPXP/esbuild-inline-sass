@@ -1,5 +1,11 @@
 # Changelog
 
+# 0.4.0
+
+- Introducing esbuild-inline-sass!
+- You can now inline SCSS/SASS with just one plugin!
+- by afkvido
+
 ## 0.3.5
 
 - Use the esbuild instance from plugin args instead of global require.

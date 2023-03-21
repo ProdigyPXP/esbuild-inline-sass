@@ -1,4 +1,5 @@
 import type { BuildOptions, Charset, Plugin } from "esbuild";
+import sassPlugin from "esbuild-sass-plugin";
 
 export interface StylePluginOptions {
   /**
@@ -15,18 +16,19 @@ export interface StylePluginOptions {
 }
 
 // https://github.com/evanw/esbuild/issues/20#issuecomment-802269745
-export function style({ minify = true, charset = "utf8" }: StylePluginOptions = {}): Plugin {
+export function inlineSass({ minify = true, charset = "utf8" }: StylePluginOptions = {}): Plugin {
   let esbuild_shim: typeof import("esbuild") | undefined;
 
   return {
-    name: "style",
+    name: "inlineSass",
     setup({ onResolve, onLoad, esbuild }) {
       const opt: BuildOptions = { logLevel: "silent", bundle: true, write: false, charset, minify };
       const require_esbuild = () => esbuild || (esbuild_shim ||= require("esbuild"));
 
-      onLoad({ filter: /\.css$/ }, async args => {
+      onLoad({ filter: /\.s[a|c]ss$/ }, async args => {
         const { errors, warnings, outputFiles } = await require_esbuild().build({
           entryPoints: [args.path],
+          plugins: [sassPlugin()],
           ...opt,
         });
         const css = outputFiles![0].text.trimEnd();
@@ -56,4 +58,7 @@ export function style({ minify = true, charset = "utf8" }: StylePluginOptions = 
   };
 }
 
-export default style;
+export const inlineScss = inlineSass;
+
+export default inlineSass;
+

@@ -1,6 +1,3 @@
-import "./style.css";
+import "./style.scss";
+
 console.log("lib");
-import "./style.css";
-import "./style.css";
-import "./style.css";
-import "sanitize.css/forms.css";

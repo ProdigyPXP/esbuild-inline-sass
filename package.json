@@ -1,8 +1,8 @@
 {
-  "name": "@hyrious/esbuild-plugin-style",
-  "version": "0.3.5",
-  "description": "The missing style loader for esbuild.",
-  "repository": "hyrious/esbuild-plugin-style",
+  "name": "esbuild-inline-sass",
+  "version": "0.4.0",
+  "description": "The missing inline SASS/SCSS loader for esbuild.",
+  "repository": "ProdigyPXP/esbuild-inline-sass",
   "main": "index.js",
   "types": "index.ts",
   "files": [
@@ -20,7 +20,10 @@
     "style",
     "css"
   ],
-  "author": "hyrious <hyrious@outlook.com>",
+  "author": {
+    "name": "ProdigyPXP",
+    "email": "ProdigyPNP@gmail.com"
+  },
   "license": "MIT",
   "peerDependencies": {
     "esbuild": "*"
@@ -34,5 +37,8 @@
     "@types/node": "^17.0.21",
     "esbuild": "^0.14.27",
     "sanitize.css": "^13.0.0"
+  },
+  "dependencies": {
+    "esbuild-sass-plugin": "^2.7.0"
   }
 }

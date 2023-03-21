@@ -1,7 +1,4 @@
-import "./style.css";
-import "./style.css";
-import "./style.css";
-console.log(1);
-import "./style.css";
 import "./inner/lib.js";
-import "sanitize.css/typography.css";
+import "./style.scss";
+
+console.log(1);
