@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.2.1",
-    "esbuild": "^0.17.19",
+    "esbuild": "^0.18.9",
     "sanitize.css": "^13.0.0"
   },
   "dependencies": {
