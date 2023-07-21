@@ -7,5 +7,6 @@
   "prettier.tabWidth": 2,
   "prettier.endOfLine": "auto",
   "prettier.arrowParens": "avoid",
-  "prettier.printWidth": 110
+  "prettier.printWidth": 110,
+  "prettier.ignorePath": ".vscode/.prettierignore"
 }

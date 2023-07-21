@@ -1,6 +1,14 @@
 # Changelog
 
-## 0.4.1
+### 0.4.3
+
+- Documentation, README changes
+
+### 0.4.2
+
+- Basic CI added.
+
+### 0.4.1
 
 - Updated dependencies
 
