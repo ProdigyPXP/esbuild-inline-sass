@@ -1,6 +1,6 @@
 {
   "name": "esbuild-inline-sass",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "The missing inline SASS/SCSS loader for esbuild.",
   "repository": "ProdigyPXP/esbuild-inline-sass",
   "main": "index.js",
@@ -24,21 +24,21 @@
     "name": "ProdigyPXP",
     "email": "gemsvido@gmail.com"
   },
-  "license": "MIT",
   "peerDependencies": {
     "esbuild": "*"
   },
+  "license": "MIT",
   "peerDependenciesMeta": {
     "esbuild": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@types/node": "^20.4.2",
-    "esbuild": "^0.19.5",
+    "@types/node": "^20.11.19",
+    "esbuild": "^0.20.0",
     "sanitize.css": "^13.0.0"
   },
   "dependencies": {
-    "esbuild-sass-plugin": "^2.10.0"
+    "esbuild-sass-plugin": "2.16.1"
   }
 }
