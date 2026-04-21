@@ -39,7 +39,7 @@ export function inlineSass({ minify = true, charset = "utf8" }: StylePluginOptio
             warnings,
           };
         }
-        const css = outputFiles![0].text.trimEnd();
+        const css = outputFiles[0].text.trimEnd();
         return {
           errors,
           warnings,
