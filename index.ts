@@ -29,7 +29,7 @@ export function inlineSass({ minify = true, charset = "utf8" }: StylePluginOptio
       onLoad({ filter: /\.s[ac]ss$/ }, async args => {
         const { errors, warnings, outputFiles } = await require_esbuild().build({
           entryPoints: [args.path],
-          absWorkingDir: args.resolveDir || path.dirname(args.path),
+          absWorkingDir: path.dirname(args.path),
           plugins: [sassPlugin()],
           ...opt,
         });
