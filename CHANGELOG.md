@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.5.0
+### 0.5.0
 
 - Update GitHub Actions test workflow for current runners and pnpm setup.
 - Improve SASS/SCSS matching and CSS output handling in plugin build path.
