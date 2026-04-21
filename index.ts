@@ -1,3 +1,4 @@
+import path from "node:path";
 import type { BuildOptions, Charset, Plugin } from "esbuild";
 import sassPlugin from "esbuild-sass-plugin";
 
@@ -25,17 +26,25 @@ export function inlineSass({ minify = true, charset = "utf8" }: StylePluginOptio
       const opt: BuildOptions = { logLevel: "silent", bundle: true, write: false, charset, minify };
       const require_esbuild = () => esbuild || (esbuild_shim ||= require("esbuild"));
 
-      onLoad({ filter: /\.s[a|c]ss$/ }, async args => {
+      onLoad({ filter: /\.s[ac]ss$/ }, async args => {
         const { errors, warnings, outputFiles } = await require_esbuild().build({
           entryPoints: [args.path],
+          absWorkingDir: path.dirname(args.path),
           plugins: [sassPlugin()],
           ...opt,
         });
-        const css = outputFiles![0].text.trimEnd();
+        if (!outputFiles?.length) {
+          return {
+            errors: [...errors, { text: `No CSS output generated for "${args.path}"` }],
+            warnings,
+          };
+        }
+        const css = outputFiles[0].text.trimEnd();
         return {
           errors,
           warnings,
           contents: `import { inject_style } from "__style_helper__"\ninject_style(${JSON.stringify(css)})`,
+          loader: "js",
         };
       });
 
@@ -61,4 +70,3 @@ export function inlineSass({ minify = true, charset = "utf8" }: StylePluginOptio
 export const inlineScss = inlineSass;
 
 export default inlineSass;
-
