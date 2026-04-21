@@ -39,6 +39,6 @@
     "sanitize.css": "^13.0.0"
   },
   "dependencies": {
-    "esbuild-sass-plugin": "3.3.0"
+    "esbuild-sass-plugin": "3.7.0"
   }
 }
