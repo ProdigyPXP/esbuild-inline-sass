@@ -11,7 +11,7 @@
     "index.js.map"
   ],
   "scripts": {
-    "build": "esbuild --bundle --external:esbuild --platform=node --outfile=index.js --minify --sourcemap --sources-content=false --target=node16 index.ts",
+    "build": "esbuild --bundle --external:esbuild --external:esbuild-sass-plugin --platform=node --outfile=index.js --minify --sourcemap --sources-content=false --target=node16 index.ts",
     "test": "pnpm build && cd test && node build.js"
   },
   "keywords": [
