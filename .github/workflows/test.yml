@@ -12,20 +12,22 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [20.x, 22.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
 
-      - uses: pnpm/action-setup@v2.2.4
-        with:
-          version: 7
+      - name: Setup pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.18.3 --activate
 
       - name: Tests
         run: |
-          pnpm install
+          pnpm install --no-frozen-lockfile
           pnpm test

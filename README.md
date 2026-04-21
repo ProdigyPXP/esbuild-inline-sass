@@ -1,7 +1,7 @@
 # esbuild-inline-sass
 
 The missing inline SASS/SCSS loader for esbuild.
-Full TypeScript, EMCAScript, and CommonJS compatibility.
+Full TypeScript, ECMAScript, and CommonJS compatibility.
 
 ## Usage
 
@@ -41,7 +41,7 @@ div#game-wrapper {
 
 ### Output:
 
-This is merley an approximation- see [this document](/docs/real_output.md) to see the actual output.
+This is merely an approximation — see [this document](/docs/real_output.md) to see the actual output.
 
 output.js
 ```js
